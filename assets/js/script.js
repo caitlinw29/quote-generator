@@ -1,6 +1,7 @@
 const quoteSpan = document.getElementById("quote");
 const authorSpan = document.getElementById("author");
 const newQuoteBtn = document.getElementById("new-quote");
+const twitterBtn = document.getElementById("twitter");
 let apiQuotes = [];
 
 //Grab Quotes from API
@@ -25,4 +26,10 @@ function newQuote() {
   }
 }
 
+
+
 newQuoteBtn.addEventListener('click', getQuotes);
+twitterBtn.addEventListener('click', function(){
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteSpan.textContent} ~${authorSpan.textContent}`;
+  window.open(twitterUrl, '_blank');
+})
