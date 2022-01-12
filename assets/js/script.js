@@ -18,7 +18,11 @@ async function getQuotes(){
 function newQuote() {
   const quote = apiQuotes[Math.floor(Math.random()*apiQuotes.length)];
   quoteSpan.textContent = quote.text;
-  authorSpan.textContent = quote.author;
+  if (quote.author){
+    authorSpan.textContent = quote.author;
+  } else {
+    authorSpan.textContent = "Unknown";
+  }
 }
 
 newQuoteBtn.addEventListener('click', getQuotes);
