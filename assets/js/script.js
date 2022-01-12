@@ -1,4 +1,5 @@
 const quoteSpan = document.getElementById("quote");
+const authorSpan = document.getElementById("author");
 const newQuoteBtn = document.getElementById("new-quote");
 let apiQuotes = [];
 
@@ -17,6 +18,7 @@ async function getQuotes(){
 function newQuote() {
   const quote = apiQuotes[Math.floor(Math.random()*apiQuotes.length)];
   quoteSpan.textContent = quote.text;
+  authorSpan.textContent = quote.author;
 }
 
 newQuoteBtn.addEventListener('click', getQuotes);
